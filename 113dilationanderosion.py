@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+image1 = cv2.imread("/Users/rajaathota72/Desktop/opencv_hor_900_1.jpg")
+kernel=np.ones((5,5),np.uint8)
+erosion=cv2.erode(image1,kernel,iterations=1)
+cv2.imshow("erodedimage",erosion)
+cv2.waitKey(7000)
+dilation=cv2.dilate(image1,kernel,iterations=1)
+cv2.imshow("dilatedimage",dilation)
+cv2.waitKey(7000)
+opening=cv2.morphologyEx(image1,cv2.MORPH_OPEN,kernel)
+cv2.imshow("opening",opening)
+cv2.waitKey(10000)
+closing=cv2.morphologyEx(image1,cv2.MORPH_CLOSE,kernel)
+cv2.imshow("closing",closing)
+cv2.waitKey(10000)
+cv2.destroyAllWindows()
